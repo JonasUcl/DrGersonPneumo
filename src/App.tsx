@@ -33,7 +33,7 @@ export default function App() {
                 Agendar consulta
               </a>
             </div>
-            <div className="hero-image">Foto do médico</div>
+            <div className="hero-image"><img src=\"../assets/pneumo.jpg\" className=\"hero-image\" /></div>
           </div>
         );
 
