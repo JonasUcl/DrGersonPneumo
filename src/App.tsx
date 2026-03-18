@@ -53,6 +53,8 @@ export default function App() {
         return <h1>Blog</h1>;
       case 8:
         return <h1>Contato</h1>;
+      default:
+        return null;
     }
   };
 
@@ -76,6 +78,11 @@ export default function App() {
       <a
         href="https://wa.me/5511937748269"
         target="_blank"
+        rel="noopener noreferrer"
         className="whatsapp"
       >
+        WhatsApp
+      </a>
+    </div>
+  );
 }
