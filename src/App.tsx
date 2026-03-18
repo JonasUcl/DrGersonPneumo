@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../src/styles.css";
+import "./styles.css";
 
 const menuItems = [
   { id: 1, title: "Home" },
