@@ -1,9 +1,9 @@
-import { useState } from "react";
+mport { useState } from "react";
 import "./styles.css";
 
 const menuItems = [
   { id: 1, title: "Home" },
-  { id: 2, title: "Sobre o médico" },
+  { id: 2, title: "Sobre" },
   { id: 3, title: "Consulta" },
   { id: 4, title: "Quando procurar" },
   { id: 5, title: "Doenças" },
@@ -15,31 +15,29 @@ const menuItems = [
 export default function App() {
   const [active, setActive] = useState(1);
   const [menuOpen, setMenuOpen] = useState(true);
-  const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
-
-  const toggleSection = (key: string) => {
-    setOpenSections((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
-
-  const Section = ({ title, children, id }: any) => (
-    <div className="section">
-      <button onClick={() => toggleSection(id)} className="section-title">
-        {title}
-      </button>
-      {openSections[id] && <div className="section-content">{children}</div>}
-    </div>
-  );
 
   const renderContent = () => {
     switch (active) {
       case 1:
         return (
-          <div className="content-wrapper">
-            <h1>Pneumologista em São Paulo</h1>
-            <p className="highlight">Cuidar da respiração é cuidar da vida.</p>
+          <div className="hero">
+            <div>
+              <h1>Pneumologista em São Paulo</h1>
+              <p className="highlight">
+                Cuidar da respiração é cuidar da vida.
+              </p>
+
+              <p className="text">
+                Atendimento especializado em doenças respiratórias com foco em
+                diagnóstico preciso e tratamento individualizado.
+              </p>
+
+              <a href="https://wa.me/5511937748269" className="cta">
+                Agendar consulta
+              </a>
+            </div>
+
+            <div className="hero-image">Foto do médico</div>
           </div>
         );
 
@@ -47,18 +45,10 @@ export default function App() {
         return (
           <div className="content-wrapper">
             <h1>Sobre o Médico</h1>
-
-            <Section title="Formação médica" id="formacao">
-              <p>Graduação UFES e residência no HC-FMUSP.</p>
-            </Section>
-
-            <Section title="Experiência" id="experiencia">
-              <p>Atuação ambulatorial e hospitalar.</p>
-            </Section>
-
-            <Section title="Filosofia" id="filosofia">
-              <p>Atendimento individualizado e baseado em evidência.</p>
-            </Section>
+            <p className="text">
+              Médico pneumologista com atuação em doenças respiratórias agudas e
+              crônicas, com abordagem centrada no paciente.
+            </p>
           </div>
         );
 
@@ -66,9 +56,10 @@ export default function App() {
         return (
           <div className="content-wrapper">
             <h1>Consulta Pneumológica</h1>
-            <Section title="Como funciona" id="consulta1">
-              <p>Avaliação completa com histórico e exame físico.</p>
-            </Section>
+            <p className="text">
+              Avaliação completa com investigação detalhada e definição de
+              tratamento baseado em evidência científica.
+            </p>
           </div>
         );
 
@@ -76,36 +67,47 @@ export default function App() {
         return (
           <div className="content-wrapper">
             <h1>Quando procurar</h1>
-            <Section title="Sintomas" id="sintomas">
-              <ul>
-                <li>Tosse persistente</li>
-                <li>Falta de ar</li>
-                <li>Chiado no peito</li>
-              </ul>
-            </Section>
+            <ul className="list">
+              <li>Tosse persistente</li>
+              <li>Falta de ar</li>
+              <li>Chiado no peito</li>
+            </ul>
           </div>
         );
 
       case 5:
         return (
           <div className="content-wrapper">
-            <h1>Doenças</h1>
-            <Section title="Principais" id="doencas">
-              <ul>
-                <li>Asma</li>
-                <li>DPOC</li>
-                <li>Bronquite</li>
-              </ul>
-            </Section>
+            <h1>Doenças Respiratórias</h1>
+            <div className="grid">
+              {["Asma", "DPOC", "Bronquite", "Pneumonia", "Apneia"]
+                .map((d) => (
+                  <div className="card" key={d}>
+                    {d}
+                  </div>
+                ))}
+            </div>
           </div>
         );
 
       case 6:
-        return <h1>Avaliações</h1>;
+        return <h1>Avaliações em breve</h1>;
       case 7:
-        return <h1>Blog</h1>;
+        return <h1>Blog em breve</h1>;
+
       case 8:
-        return <h1>Contato</h1>;
+        return (
+          <div className="content-wrapper">
+            <h1>Contato</h1>
+            <p className="text">WhatsApp: (11) 93774-8269</p>
+            <p className="text">Email: gerson.pneumo@gmail.com</p>
+
+            <input className="input" placeholder="Seu nome" />
+            <input className="input" placeholder="Telefone" />
+
+            <button className="cta">Enviar</button>
+          </div>
+        );
     }
   };
 
