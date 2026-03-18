@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
+import pneumo from "./assets/pneumo.jpg";
 
 const menuItems = [
   { id: 1, title: "Home" },
@@ -33,7 +34,9 @@ export default function App() {
                 Agendar consulta
               </a>
             </div>
-            <div className="hero-image"><img src=\"./assets/pneumo.jpg\" className=\"hero-image\" /></div>
+            <div className="hero-image">
+                <img src={pneumo} alt="Dr. Gerson Pneumologista" />
+            </div>
           </div>
         );
 
