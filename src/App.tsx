@@ -26,17 +26,13 @@ export default function App() {
               <p className="highlight">
                 Cuidar da respiração é cuidar da vida.
               </p>
-
               <p className="text">
-                Atendimento especializado em doenças respiratórias com foco em
-                diagnóstico preciso e tratamento individualizado.
+                Atendimento especializado em doenças respiratórias.
               </p>
-
               <a href="https://wa.me/5511937748269" className="cta">
                 Agendar consulta
               </a>
             </div>
-
             <div className="hero-image">Foto do médico</div>
           </div>
         );
@@ -45,10 +41,7 @@ export default function App() {
         return (
           <div className="content-wrapper">
             <h1>Sobre o Médico</h1>
-            <p className="text">
-              Médico pneumologista com atuação em doenças respiratórias agudas e
-              crônicas, com abordagem centrada no paciente.
-            </p>
+            <p className="text">Atendimento humanizado e baseado em evidência.</p>
           </div>
         );
 
@@ -56,10 +49,7 @@ export default function App() {
         return (
           <div className="content-wrapper">
             <h1>Consulta Pneumológica</h1>
-            <p className="text">
-              Avaliação completa com investigação detalhada e definição de
-              tratamento baseado em evidência científica.
-            </p>
+            <p className="text">Avaliação completa da saúde respiratória.</p>
           </div>
         );
 
@@ -80,12 +70,9 @@ export default function App() {
           <div className="content-wrapper">
             <h1>Doenças Respiratórias</h1>
             <div className="grid">
-              {["Asma", "DPOC", "Bronquite", "Pneumonia", "Apneia"]
-                .map((d) => (
-                  <div className="card" key={d}>
-                    {d}
-                  </div>
-                ))}
+              {["Asma", "DPOC", "Bronquite", "Pneumonia", "Apneia"].map((d) => (
+                <div className="card" key={d}>{d}</div>
+              ))}
             </div>
           </div>
         );
@@ -101,13 +88,11 @@ export default function App() {
             <h1>Contato</h1>
             <p className="text">WhatsApp: (11) 93774-8269</p>
             <p className="text">Email: gerson.pneumo@gmail.com</p>
-
-            <input className="input" placeholder="Seu nome" />
-            <input className="input" placeholder="Telefone" />
-
-            <button className="cta">Enviar</button>
           </div>
         );
+
+      default:
+        return null;
     }
   };
 
@@ -137,3 +122,4 @@ export default function App() {
     </div>
   );
 }
+
