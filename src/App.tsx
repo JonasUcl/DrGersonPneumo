@@ -30,8 +30,9 @@ export default function App() {
       case 1:
         return (
           <motion.div className="hero" {...pageTransition}>
+            <h1>Pneumologista em São Paulo</h1>
             <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}>
-              <h1>Pneumologista em São Paulo</h1>
+              
               <p className="highlight">Cuidar da respiração é cuidar da vida.</p>
               <p className="text">
                 Atendimento especializado em doenças respiratórias com foco em diagnóstico preciso e tratamento individualizado.
