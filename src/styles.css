@@ -79,12 +79,16 @@ body {
 /* TEXT */
 h1 {
   font-size: 40px;
-  color: linear-gradient(180deg, #0f172a, #1e293b);
 }
 
 .highlight {
   font-size: 22px;
   color: #2563eb;
+}
+
+.highlight2 {
+  font-size: 22px;
+  color: #021b44;
 }
 
 .text {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, color } from "framer-motion";
 import "./styles.css";
 import pneumo from "./assets/pneumo.jpg";
 
@@ -30,7 +30,7 @@ export default function App() {
       case 1:
         return (
           <motion.div className="content-wrapper" {...pageTransition}>
-            <h1>Pneumologista em São Paulo</h1>
+            <h1 className="highlight2" >Pneumologista em São Paulo</h1>
               <motion.div className="hero">
                 <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}>
                   
