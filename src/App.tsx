@@ -111,6 +111,12 @@ export default function App() {
             <h1>Contato</h1>
             <p>📞 (11) 93774-8269</p>
             <p>📧 gerson.pneumo@gmail.com</p>
+            <iframe
+              src="https://www.google.com/maps?q=Rua+Frei+Caneca,+1380+São+Paulo&output=embed"
+              width="100%"
+              height="300"
+              style={{ border: 0, borderRadius: "12px" }}
+            />
           </motion.div>
         );
 
@@ -122,7 +128,7 @@ export default function App() {
   return (
     <div>
       <header className="header">
-        <h3>Dr. Gerson</h3>
+        <h3>Dr. Gerson Almeida</h3>
 
         <nav className="nav-desktop">
           {menuItems.map(item => (
