@@ -29,29 +29,33 @@ export default function App() {
     switch (active) {
       case 1:
         return (
-          <motion.div className="hero" {...pageTransition}>
+          <motion.div className="content-wrapper" {...pageTransition}>
             <h1>Pneumologista em São Paulo</h1>
-            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}>
-              
-              <p className="highlight">Cuidar da respiração é cuidar da vida.</p>
-              <p className="text">
-                Atendimento especializado em doenças respiratórias com foco em diagnóstico preciso e tratamento individualizado.
-              </p>
+              <motion.div className="hero">
+                <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}>
+                  
+                  <p className="highlight">Cuidar da respiração é cuidar da vida.</p>
+                  <p className="text">
+                    Atendimento especializado em doenças respiratórias com foco em diagnóstico preciso e tratamento individualizado.
+                  </p>
 
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a href="https://wa.me/5511937748269?text=Olá,%20gostaria%20de%20agendar%20consulta" className="cta">
-                  Agendar consulta
-                </a>
-                <a href="#contato" className="cta secondary">
-                  Entrar em contato
-                </a>
-              </div>
-            </motion.div>
+                  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                    <a href="https://wa.me/5511937748269?text=Olá,%20gostaria%20de%20agendar%20consulta" className="cta">
+                      Agendar consulta
+                    </a>
+                    <a href="#contato" className="cta secondary">
+                      Entrar em contato
+                    </a>
+                  </div>
+                </motion.div>
 
-            <motion.div className="hero-image" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
-              <img src={pneumo} alt="Dr. Gerson" />
-            </motion.div>
+                <motion.div className="hero-image" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
+                  <img src={pneumo} alt="Dr. Gerson" />
+                </motion.div>
+              </motion.div>
+
           </motion.div>
+          
         );
 
       case 2:
