@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence, color } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./styles.css";
 import pneumo from "./assets/pneumo.jpg";
 
@@ -14,13 +14,6 @@ const menuItems = [
   { id: 8, title: "Contato" },
 ];
 
-const pageTransition = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -20 },
-  transition: { duration: 0.5 }
-};
-
 export default function App() {
   const [active, setActive] = useState(1);
   const [menuOpen, setMenuOpen] = useState(true);
@@ -29,170 +22,170 @@ export default function App() {
     switch (active) {
       case 1:
         return (
-          <motion.div className="content-wrapper" {...pageTransition}>
-            <h1 className="highlight2" >Pneumologista em São Paulo</h1>
-              <motion.div className="hero">
-                <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}>
-                  
-                  <p className="highlight">Cuidar da respiração é cuidar da vida.</p>
-                  <p className="text">
-                    Atendimento especializado em doenças respiratórias com foco em diagnóstico preciso e tratamento individualizado.
-                  </p>
+          <div>
+            {/* HERO */}
+            <section className="hero">
+              <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}>
+                <h1>Pneumologista em São Paulo</h1>
+                <p className="highlight">Cuidar da respiração é cuidar da vida.</p>
+                <p className="text">
+                  Diagnóstico preciso e tratamento moderno das doenças respiratórias.
+                </p>
 
-                  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                    <a href="https://wa.me/5511937748269?text=Olá,%20gostaria%20de%20agendar%20consulta" className="cta">
-                      Agendar consulta
-                    </a>
-                    <a href="#contato" className="cta secondary">
-                      Entrar em contato
-                    </a>
-                  </div>
-                </motion.div>
-
-                <motion.div className="hero-image" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
-                  <img src={pneumo} alt="Dr. Gerson" />
-                </motion.div>
+                <div className="cta-group">
+                  <a href="https://wa.me/5511937748269?text=Olá,%20gostaria%20de%20agendar%20consulta" className="cta">
+                    Agendar consulta
+                  </a>
+                </div>
               </motion.div>
 
-          </motion.div>
-          
+              <motion.div className="hero-image" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
+                <img src={pneumo} alt="Dr. Gerson" />
+              </motion.div>
+            </section>
+
+            {/* DIFERENCIAIS */}
+            <section className="section">
+              <h2>Diferenciais do atendimento</h2>
+              <div className="grid">
+                {["Atendimento individualizado", "Baseado em evidência", "Diagnóstico preciso", "Foco em qualidade de vida"].map((item, i) => (
+                  <motion.div className="card" key={item} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
+                    {item}
+                  </motion.div>
+                ))}
+              </div>
+            </section>
+
+            {/* CTA FINAL */}
+            <section className="cta-banner">
+              <h2>Agende sua consulta</h2>
+              <a href="https://wa.me/5511937748269" className="cta large">Falar no WhatsApp</a>
+            </section>
+          </div>
         );
 
       case 2:
         return (
-          <motion.div className="content-wrapper" {...pageTransition}>
+          <div className="content-wrapper">
             <h1>Sobre o Médico</h1>
             <p className="text">
-              Médico pneumologista com formação pela UFES e especialização pelo HC-FMUSP.
-              Atendimento focado em escuta ativa, diagnóstico preciso e tratamento baseado em evidência.
+              Pneumologista com formação pelo HC-FMUSP, com atuação clínica focada em diagnóstico preciso e cuidado individualizado.
             </p>
-          </motion.div>
+          </div>
         );
 
       case 3:
         return (
-          <motion.div className="content-wrapper" {...pageTransition}>
+          <div className="content-wrapper">
             <h1>Consulta Pneumológica</h1>
             <p className="text">
-              Avaliação completa da saúde respiratória, incluindo análise clínica detalhada e solicitação de exames quando necessário.
+              Avaliação completa da saúde respiratória com investigação detalhada e definição de tratamento individualizado.
             </p>
-          </motion.div>
+          </div>
         );
 
       case 4:
         return (
-          <motion.div className="content-wrapper" {...pageTransition}>
-            <h1>Quando procurar</h1>
+          <div className="content-wrapper">
+            <h1>Quando procurar um pneumologista</h1>
             <ul className="list">
               <li>Tosse persistente</li>
               <li>Falta de ar</li>
               <li>Chiado no peito</li>
-              <li>Cansaço ao respirar</li>
+              <li>Infecções respiratórias frequentes</li>
             </ul>
-          </motion.div>
+          </div>
         );
 
       case 5:
         return (
-          <motion.div className="content-wrapper" {...pageTransition}>
+          <div className="content-wrapper">
             <h1>Doenças Respiratórias</h1>
             <div className="grid">
-              {["Asma", "DPOC", "Bronquite", "Pneumonia", "Apneia do sono"].map((d, i) => (
-                <motion.div
-                  className="card"
-                  key={d}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {d}
-                </motion.div>
+              {["Asma", "DPOC", "Bronquite", "Pneumonia", "Apneia do sono", "Fibrose pulmonar"].map((d) => (
+                <div className="card" key={d}>{d}</div>
               ))}
             </div>
-          </motion.div>
+          </div>
         );
 
       case 6:
         return (
-          <motion.div className="content-wrapper" {...pageTransition}>
+          <div className="content-wrapper">
             <h1>Avaliações</h1>
-            <p className="text">Avaliações disponíveis em breve via Google e Doctoralia.</p>
-          </motion.div>
+            <p className="text">Em breve integração com Google e Doctoralia.</p>
+          </div>
         );
 
       case 7:
         return (
-          <motion.div className="content-wrapper" {...pageTransition}>
+          <div className="content-wrapper">
             <h1>Blog</h1>
             <p className="text">Conteúdos educativos sobre saúde respiratória em breve.</p>
-          </motion.div>
+          </div>
         );
 
       case 8:
         return (
-          <motion.div className="content-wrapper" {...pageTransition} id="contato">
+          <div className="content-wrapper">
             <h1>Contato</h1>
-            <p className="text">📍 Rua Frei Caneca, 1380 - São Paulo</p>
-            <p className="text">📞 (11) 3289-3195</p>
-            <p className="text">📱 (11) 93774-8269</p>
-            <p className="text">✉️ gerson.pneumo@gmail.com</p>
+            <p>📍 Rua Frei Caneca, 1380 - São Paulo</p>
+            <p>📞 (11) 3289-3195</p>
+            <p>📱 WhatsApp: (11) 93774-8269</p>
 
             <iframe
-              title="mapa"
               src="https://www.google.com/maps?q=Rua+Frei+Caneca,+1380+São+Paulo&output=embed"
               width="100%"
               height="300"
-              style={{ border: 0, borderRadius: "12px", marginTop: "20px" }}
-              loading="lazy"
+              style={{ border: 0, borderRadius: "12px" }}
             />
-          </motion.div>
+          </div>
         );
 
       default:
-        return null;
+        return (
+          <div className="content-wrapper">
+            <h1>{menuItems.find(m => m.id === active)?.title}</h1>
+            <p className="text">Conteúdo em desenvolvimento.</p>
+          </div>
+        );
     }
   };
 
   return (
     <div className="container">
-      <motion.aside
-        className={menuOpen ? "sidebar" : "sidebar collapsed"}
-        animate={{ width: menuOpen ? 260 : 70 }}
-      >
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
-        </button>
+      {/* HEADER FIXO */}
+      <header className="header">
+        <h3>Dr. Gerson Almeida</h3>
+        <a href="https://wa.me/5511937748269" className="cta small">Agendar</a>
+      </header>
 
-        {menuItems.map((item) => (
-          <motion.button
+      {/* SIDEBAR */}
+      <aside className={menuOpen ? "sidebar" : "sidebar collapsed"}>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+
+        {menuOpen && menuItems.map((item) => (
+          <button
             key={item.id}
             onClick={() => setActive(item.id)}
             className={`menu-item ${active === item.id ? "active" : ""}`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
-            {menuOpen ? item.title : item.title.charAt(0)}
-          </motion.button>
+            {item.title}
+          </button>
         ))}
-      </motion.aside>
+      </aside>
 
+      {/* MAIN */}
       <main className="main">
         <AnimatePresence mode="wait">
           <div key={active}>{renderContent()}</div>
         </AnimatePresence>
       </main>
 
-      <motion.a
-        href="https://wa.me/5511937748269?text=Olá,%20gostaria%20de%20agendar%20consulta"
-        target="_blank"
-        className="whatsapp"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
-      >
-        WhatsApp
-      </motion.a>
+      {/* WHATSAPP FIXO */}
+      <a href="https://wa.me/5511937748269" className="whatsapp">WhatsApp</a>
     </div>
   );
 }
+
+
